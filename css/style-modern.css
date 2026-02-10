@@ -258,48 +258,54 @@ a:hover {
     transition: opacity 0.3s ease;
 }
 
-.portfolio-thumb {
-    position: relative;
-    overflow: hidden;
-}
+/* Bounty Overlay Popup */
+#bounty-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 80vh;
+    z-index: 9999;
+    padding: 20px;
 
-.bounty-slideshow {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    /* Above main image */
-    pointer-events: none;
-    /* Let clicks pass through */
+    background: rgba(20, 20, 25, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+
+    border-radius: 40px;
+    /* New gen curved borders */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     opacity: 0;
-    transition: opacity 0.3s ease;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.bounty-slideshow img {
+#bounty-overlay.active {
+    opacity: 1;
+    pointer-events: none;
+    /* Keep none so mouse doesn't get stuck on overlay if it covers trigger */
+}
+
+#bounty-overlay img {
+    max-width: 100%;
+    max-height: 100%;
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    border-radius: 30px;
+    object-fit: contain;
     opacity: 0;
     transition: opacity 0.5s ease;
-    border-radius: 12px;
-    /* Match parent */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.bounty-slideshow img.active {
+#bounty-overlay img.active {
     opacity: 1;
-}
-
-#bounty-card:hover .bounty-slideshow {
-    opacity: 1;
-}
-
-#bounty-card:hover #bounty-main-img {
-    opacity: 0;
 }
 
 .media-object i {
