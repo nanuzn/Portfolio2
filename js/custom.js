@@ -17,38 +17,42 @@ $(function () {
 	$(".rotate").textrotator();
 })
 
-// Bounties Slideshow Popup
+// Slideshow Popup Logic
 $(document).ready(function () {
-	let interval;
-	const $overlay = $('#bounty-overlay');
-	const $images = $overlay.find('img');
-	let currentIndex = 0;
+	function setupSlideshow(cardId, overlayId) {
+		let interval;
+		const $overlay = $(overlayId);
+		const $images = $overlay.find('img');
+		let currentIndex = 0;
 
-	if ($images.length > 0) {
-		// Prepare first image
-		$images.eq(0).addClass('active');
+		if ($images.length > 0) {
+			// Prepare first image
+			$images.eq(0).addClass('active');
 
-		$('#bounty-card').hover(
-			function () {
-				// Mouse enter
-				$overlay.addClass('active');
+			$(cardId).hover(
+				function () {
+					// Mouse enter
+					$overlay.addClass('active');
 
-				// Reset to first image or keep current logic
-				currentIndex = 0;
-				$images.removeClass('active').eq(currentIndex).addClass('active');
+					// Reset to first image
+					currentIndex = 0;
+					$images.removeClass('active').eq(currentIndex).addClass('active');
 
-				interval = setInterval(function () {
-					$images.eq(currentIndex).removeClass('active');
-					currentIndex = (currentIndex + 1) % $images.length;
-					$images.eq(currentIndex).addClass('active');
-				}, 1200); // Slightly slower for big images
-			},
-			function () {
-				// Mouse leave
-				$overlay.removeClass('active');
-				clearInterval(interval);
-				// Optional: Reset active class after delay or immediately
-			}
-		);
+					interval = setInterval(function () {
+						$images.eq(currentIndex).removeClass('active');
+						currentIndex = (currentIndex + 1) % $images.length;
+						$images.eq(currentIndex).addClass('active');
+					}, 1200);
+				},
+				function () {
+					// Mouse leave
+					$overlay.removeClass('active');
+					clearInterval(interval);
+				}
+			);
+		}
 	}
+
+	setupSlideshow('#bounty-card', '#bounty-overlay');
+	setupSlideshow('#hof-card', '#hof-overlay');
 });

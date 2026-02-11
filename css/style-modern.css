@@ -258,8 +258,8 @@ a:hover {
     transition: opacity 0.3s ease;
 }
 
-/* Bounty Overlay Popup */
-#bounty-overlay {
+/* Slideshow Overlay Popup */
+.slideshow-overlay {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -287,13 +287,13 @@ a:hover {
     transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-#bounty-overlay.active {
+.slideshow-overlay.active {
     opacity: 1;
     pointer-events: none;
     /* Keep none so mouse doesn't get stuck on overlay if it covers trigger */
 }
 
-#bounty-overlay img {
+.slideshow-overlay img {
     max-width: 100%;
     max-height: 100%;
     position: absolute;
@@ -304,7 +304,7 @@ a:hover {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-#bounty-overlay img.active {
+.slideshow-overlay img.active {
     opacity: 1;
 }
 
