@@ -151,14 +151,20 @@ a:hover {
 .section {
     position: relative;
     z-index: 1;
-    padding: 120px 0; /* Increased spacing */
+    padding: 150px 0;
+    /* Further increased spacing for full-page feel */
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
-#portfolio h2 {
-    margin-bottom: 4rem; /* More space after title */
+
+#achievements h2,
+#certifications h2,
+#skills h2,
+#experience h2 {
+    margin-bottom: 5rem;
+    /* Increased gap between heading and content */
 }
 
 
