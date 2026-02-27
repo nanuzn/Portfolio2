@@ -301,32 +301,31 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12">
-						<h2 class="wow bounce">Achivements</h2>
+						<h2 class="wow bounce">Achievements</h2>
 					</div>
 					<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
 						<div class="portfolio-thumb glass-panel" id="bounty-card">
 							<img src="images/bounty.jpg" class="img-responsive" alt="portfolio img"
 								id="bounty-main-img">
-
-							<a href="https://drive.google.com/drive/folders/1Kg5DeyVozCJC8iQsRBAheb-uzL5TolbJ?usp=drive_link"
-								target="_blank">
-								<div class="portfolio-overlay">
-									<h4>Bounties</h4>
-									<h5>Click to see more</h5>
-								</div>
-							</a>
+							<div class="portfolio-overlay">
+								<h4>Bounties</h4>
+								<button class="btn btn-xs btn-modern view-btn" onclick="openGallery('bounty')">View
+									Screenshots</button>
+								<a href="https://drive.google.com/drive/folders/1Kg5DeyVozCJC8iQsRBAheb-uzL5TolbJ?usp=drive_link"
+									target="_blank" class="drive-link">View Drive</a>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
 						<div class="portfolio-thumb glass-panel" id="hof-card">
 							<img src="images/hof.jpg" class="img-responsive" alt="portfolio img">
-							<a href="https://drive.google.com/drive/folders/1qhVYlHgZQhYs92UMRXa-BtgKz8HBKrv6?usp=drive_link"
-								target="_blank">
-								<div class="portfolio-overlay">
-									<h4>Hall of Fames</h4>
-									<h5>Click to see more</h5>
-								</div>
-							</a>
+							<div class="portfolio-overlay">
+								<h4>Hall of Fames</h4>
+								<button class="btn btn-xs btn-modern view-btn" onclick="openGallery('hof')">View
+									Screenshots</button>
+								<a href="https://drive.google.com/drive/folders/1qhVYlHgZQhYs92UMRXa-BtgKz8HBKrv6?usp=drive_link"
+									target="_blank" class="drive-link">View Drive</a>
+							</div>
 						</div>
 					</div>
 					<div class="col-md-4 col-xs-6 wow fadeIn" data-wow-delay="0.6s">
@@ -349,45 +348,19 @@
 
 	</div>
 
-	<!-- Bounty Slideshow Overlay -->
-	<div id="bounty-overlay" class="slideshow-overlay">
-		<img src="images/bounties/Screenshot_20251008_203958.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204007.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204016.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204037.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204044.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204052.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204100.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204107.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204120.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204127.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204139.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204146.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204154.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204203.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204211.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204221.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204228.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204237.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204243.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204250.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204257.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204306.jpg" alt="bounty screenshot">
-		<img src="images/bounties/Screenshot_20251008_204354.jpg" alt="bounty screenshot">
-	</div>
-
-	<!-- HOF Slideshow Overlay -->
-	<div id="hof-overlay" class="slideshow-overlay">
-		<img src="images/hofs/Screenshot_20251008_203938.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_204402.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_204620.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_204910.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_205028.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_205205.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_205259.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_205426.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_205731.jpg" alt="hof screenshot">
-		<img src="images/hofs/Screenshot_20251008_211448.jpg" alt="hof screenshot">
+	<!-- New Interactive Lightbox Modal -->
+	<div id="screenshot-modal" class="modal-viewer">
+		<span class="modal-close" onclick="closeModal()">&times;</span>
+		<div class="modal-content">
+			<img id="modal-img" src="" alt="Achievement Screenshot">
+			<div class="modal-nav">
+				<button class="nav-prev" onclick="changeImage(-1)"><i class="fa fa-chevron-left"></i></button>
+				<button class="nav-next" onclick="changeImage(1)"><i class="fa fa-chevron-right"></i></button>
+			</div>
+			<div class="modal-counter">
+				<span id="current-index">1</span> / <span id="total-count">1</span>
+			</div>
+		</div>
 	</div>
 
 	<!-- jQuery -->

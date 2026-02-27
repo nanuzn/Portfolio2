@@ -151,11 +151,16 @@ a:hover {
 .section {
     position: relative;
     z-index: 1;
-    padding: 100px 0;
+    padding: 120px 0; /* Increased spacing */
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
+
+#portfolio h2 {
+    margin-bottom: 4rem; /* More space after title */
+}
+
 
 /* Button & Social Container */
 .btn-social-container {
@@ -260,55 +265,147 @@ a:hover {
     transition: opacity 0.3s ease;
 }
 
-/* Slideshow Overlay Popup */
-.slideshow-overlay {
+/* Modal Viewer (Lightbox) */
+.modal-viewer {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 80vw;
-    height: 80vh;
-    z-index: 9999;
-    padding: 20px;
-
-    background: rgba(20, 20, 25, 0.85);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 10, 15, 0.95);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.modal-viewer.active {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    font-size: 3rem;
+    color: white;
+    cursor: pointer;
+    z-index: 10001;
+    transition: transform 0.3s ease;
+}
+
+.modal-close:hover {
+    transform: rotate(90deg) scale(1.1);
+    color: var(--accent-color);
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90vw;
+    max-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    transition: opacity 0.3s ease;
+}
 
-    border-radius: 40px;
-    /* New gen curved borders */
+.modal-nav {
+    position: absolute;
+    width: 110%;
+    top: 50%;
+    left: -5%;
+    display: flex;
+    justify-content: space-between;
+    pointer-events: none;
+}
 
+.modal-nav button {
+    pointer-events: auto;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
     display: flex;
     justify-content: center;
     align-items: center;
-
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    backdrop-filter: blur(10px);
 }
 
-.slideshow-overlay.active {
+.modal-nav button:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 20px var(--accent-glow);
+    transform: scale(1.1);
+}
+
+.modal-counter {
+    margin-top: 20px;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px 15px;
+    border-radius: 20px;
+}
+
+/* Portfolio Overlay Updates */
+.portfolio-overlay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+}
+
+.portfolio-overlay h4 {
+    margin-bottom: 5px;
+}
+
+.view-btn {
+    padding: 8px 20px !important;
+    font-size: 14px !important;
+}
+
+.drive-link {
+    font-size: 14px;
+    text-decoration: underline !important;
+    opacity: 0.8;
+}
+
+.drive-link:hover {
     opacity: 1;
-    pointer-events: none;
-    /* Keep none so mouse doesn't get stuck on overlay if it covers trigger */
 }
 
-.slideshow-overlay img {
-    max-width: 100%;
-    max-height: 100%;
-    position: absolute;
-    border-radius: 30px;
-    object-fit: contain;
-    opacity: 0;
-    transition: opacity 0.5s ease;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+.portfolio-thumb.glass-panel {
+    padding: 0;
+    overflow: hidden;
 }
 
-.slideshow-overlay img.active {
-    opacity: 1;
+.portfolio-thumb img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 0 !important;
 }
+
 
 .media-object i {
     color: var(--accent-color);
