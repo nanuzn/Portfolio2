@@ -1,13 +1,29 @@
 
 //
 $(document).ready(function () {
-	$('#fullpage').fullpage({
-		'verticalCentered': false,
-		'scrollingSpeed': 600,
-		'autoScrolling': false,
-		'css3': true,
-		'navigation': true,
-		'navigationPosition': 'right',
+	var isMobile = $(window).width() <= 768;
+
+	if (!isMobile) {
+		$('#fullpage').fullpage({
+			'verticalCentered': false,
+			'scrollingSpeed': 600,
+			'autoScrolling': false,
+			'css3': true,
+			'navigation': true,
+			'navigationPosition': 'right',
+		});
+	}
+
+	// Handle resize / orientation change
+	var resizeTimer;
+	$(window).on('resize', function () {
+		clearTimeout(resizeTimer);
+		resizeTimer = setTimeout(function () {
+			var nowMobile = $(window).width() <= 768;
+			if (nowMobile && typeof $.fn.fullpage.destroy === 'function') {
+				try { $.fn.fullpage.destroy('all'); } catch (e) { }
+			}
+		}, 250);
 	});
 });
 

@@ -151,14 +151,16 @@ a:hover {
 .section {
     position: relative;
     z-index: 1;
-    padding: 120px 0; /* Increased spacing */
+    padding: 120px 0;
+    /* Increased spacing */
     min-height: 100vh;
     display: flex;
     align-items: center;
 }
 
 #portfolio h2 {
-    margin-bottom: 4rem; /* More space after title */
+    margin-bottom: 4rem;
+    /* More space after title */
 }
 
 
@@ -237,23 +239,265 @@ a:hover {
     justify-content: center;
 }
 
-/* Responsive */
-/* Responsive */
-@media (max-width: 768px) {
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
 
+/* Tablet landscape and below */
+@media (max-width: 992px) {
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.6rem;
+    }
+
+    .experience-card {
+        padding: 2rem;
+    }
+
+    .exp-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .cert-card {
+        padding: 1.8rem;
+    }
+}
+
+/* Tablet portrait and below */
+@media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
+    .section {
+        padding: 60px 0;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    /* Force fullpage.js to not constrain height on mobile */
+    .fp-tableCell {
+        height: auto !important;
+        padding: 40px 0 !important;
+    }
+
+    .fp-section.fp-table,
+    .fp-slide.fp-table {
+        height: auto !important;
+    }
+
+    /* Background orbs */
     .orb-1,
     .orb-2,
     .orb-3 {
         filter: blur(60px);
     }
 
-    .hero-title {
-        font-size: 3rem;
-        /* Adjusted for mobile */
+    .orb-1 {
+        width: 70vw;
+        height: 70vw;
     }
 
+    .orb-2 {
+        width: 80vw;
+        height: 80vw;
+    }
+
+    .orb-3 {
+        width: 60vw;
+        height: 60vw;
+    }
+
+    /* Hero */
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+        line-height: 1.5;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.2rem;
+    }
+
+    /* Glass panels */
     .glass-panel {
         padding: 1.5rem;
+        border-radius: 16px;
+        margin-bottom: 1.2rem;
+    }
+
+    .glass-panel:hover {
+        transform: none;
+    }
+
+    /* Button & Social */
+    .btn-social-container {
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .btn-modern {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+
+    .social-icon {
+        justify-content: center;
+    }
+
+    /* Experience */
+    .experience-card {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .exp-header {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .exp-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .exp-meta {
+        font-size: 0.8rem;
+    }
+
+    .exp-bullets li {
+        font-size: 0.9rem;
+        margin-bottom: 0.8rem;
+        padding-left: 20px;
+    }
+
+    /* Skills - force single column */
+    .skill-group {
+        margin-bottom: 1rem;
+    }
+
+    .skill-group h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .skill-tags span {
+        font-size: 0.8rem;
+        padding: 5px 12px;
+    }
+
+    /* Certifications */
+    .cert-card {
+        padding: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .cert-card i {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+    }
+
+    .cert-card h3 {
+        font-size: 1.3rem;
+    }
+
+    .cert-card p {
+        font-size: 0.85rem;
+    }
+
+    /* Achievements */
+    .media {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .media-object {
+        font-size: 2rem;
+    }
+
+    .media-heading {
+        font-size: 1.1rem;
+    }
+
+    .media-body p {
+        font-size: 0.85rem;
+    }
+
+    /* Portfolio */
+    .portfolio-thumb img {
+        height: 200px;
+    }
+
+    #portfolio h2 {
+        margin-bottom: 2rem;
+    }
+
+    /* Modal adjustments */
+    .modal-close {
+        top: 15px;
+        right: 20px;
+        font-size: 2.2rem;
+    }
+
+    .modal-content {
+        max-width: 95vw;
+    }
+
+    .modal-content img {
+        border-radius: 12px;
+        max-height: 70vh;
+    }
+
+    .modal-nav {
+        width: 100%;
+        left: 0;
+        padding: 0 5px;
+    }
+
+    .modal-nav button {
+        width: 45px;
+        height: 45px;
+        font-size: 1.1rem;
+    }
+
+    /* Hide fullpage.js side navigation on mobile */
+    #fp-nav {
+        display: none !important;
+    }
+
+    /* Bootstrap column overrides - force stacking */
+    .col-md-4,
+    .col-md-6,
+    .col-md-8 {
+        width: 100% !important;
+        float: none !important;
+    }
+
+    .col-md-2 {
+        display: none;
+    }
+
+    /* Center text on mobile */
+    .text-center-mobile {
+        text-align: center;
+    }
+
+    /* Certification row spacing */
+    .row[style*="margin-top: 20px"] {
+        margin-top: 0 !important;
     }
 }
 
@@ -523,18 +767,149 @@ a:hover {
     margin-top: 5px;
 }
 
-/* Responsive Overrides */
-@media (max-width: 768px) {
-    .exp-header {
-        flex-direction: column;
-        gap: 5px;
+/* Small phone screens */
+@media (max-width: 480px) {
+    body {
+        font-size: 15px;
     }
 
     .section {
-        padding: 50px 0;
+        padding: 40px 0;
+    }
+
+    .fp-tableCell {
+        padding: 25px 0 !important;
     }
 
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
+    }
+
+    .lead {
+        font-size: 0.85rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .glass-panel {
+        padding: 1.2rem;
+        border-radius: 14px;
+    }
+
+    .btn-modern {
+        padding: 10px 25px;
+        font-size: 14px;
+        letter-spacing: 1px;
+    }
+
+    .experience-card {
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+    }
+
+    .exp-header h3 {
+        font-size: 1.1rem;
+    }
+
+    .exp-bullets li {
+        font-size: 0.85rem;
+    }
+
+    .skill-tags span {
+        font-size: 0.75rem;
+        padding: 4px 10px;
+    }
+
+    .cert-card {
+        padding: 1.2rem;
+    }
+
+    .cert-card i {
+        font-size: 1.8rem;
+    }
+
+    .cert-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .portfolio-thumb img {
+        height: 160px;
+    }
+
+    .media-object {
+        font-size: 1.5rem;
+    }
+
+    .media-heading {
+        font-size: 1rem;
+    }
+
+    .modal-nav button {
+        width: 38px;
+        height: 38px;
+        font-size: 0.9rem;
+    }
+
+    .social-icon li {
+        margin-right: 10px !important;
+    }
+
+    .social-icon li a {
+        font-size: 1.2rem !important;
+    }
+
+    /* Portfolio col-xs-6 override for very small screens */
+    .col-xs-6 {
+        width: 100% !important;
+        float: none !important;
+    }
+}
+
+/* Ensure smooth scrolling on mobile */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        overflow: visible !important;
+        height: auto !important;
+    }
+
+    #superContainer {
+        height: auto !important;
+        overflow: visible !important;
+        -ms-touch-action: auto;
+        touch-action: auto;
+    }
+
+    #fullpage {
+        height: auto !important;
+        transform: none !important;
+    }
+
+    .fp-section {
+        height: auto !important;
+    }
+
+    .fp-tableCell {
+        display: block !important;
+    }
+
+    /* Smooth scroll behavior */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Make container fluid on mobile */
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
     }
 }
