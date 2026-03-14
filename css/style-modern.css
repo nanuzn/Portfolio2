@@ -607,22 +607,43 @@ a:hover {
 .portfolio-thumb.glass-panel {
     padding: 0;
     overflow: hidden;
-}
-
-.portfolio-thumb img {
-    width: 100%;
+    position: relative;
     height: 300px;
-    object-fit: cover;
-    border-radius: 0 !important;
 }
 
 .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 15px;
     padding: 20px;
+    background: rgba(157, 241, 0, 0.15); /* Green frosted tint */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.portfolio-thumb.glass-panel:hover .portfolio-overlay {
+    opacity: 1;
+}
+
+.portfolio-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 !important;
+    transition: transform 0.4s ease;
+}
+
+.portfolio-thumb.glass-panel:hover img {
+    transform: scale(1.1);
 }
 
 .portfolio-overlay h4 {
@@ -975,7 +996,7 @@ a:hover {
     .media-heading { font-size: 1.1rem; }
     .media-body p { font-size: 0.85rem; }
 
-    .portfolio-thumb img { height: 200px; }
+    .portfolio-thumb.glass-panel { height: 200px; }
     #portfolio h2 { margin-bottom: 2rem; }
 
     .modal-close { top: 15px; right: 20px; font-size: 2.2rem; }
@@ -1041,7 +1062,7 @@ a:hover {
     .cert-card { padding: 1.2rem; }
     .cert-card i { font-size: 1.8rem; }
     .cert-card h3 { font-size: 1.1rem; }
-    .portfolio-thumb img { height: 160px; }
+    .portfolio-thumb.glass-panel { height: 160px; }
     .media-object { font-size: 1.5rem; }
     .media-heading { font-size: 1rem; }
     .modal-nav button { width: 38px; height: 38px; font-size: 0.9rem; }
