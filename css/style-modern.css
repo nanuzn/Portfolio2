@@ -267,6 +267,15 @@ a:hover {
     justify-content: center;
 }
 
+/* Fix for large content overlapping in fullpage sections */
+.fp-auto-height.fp-section,
+.fp-auto-height .fp-tableCell {
+    height: auto !important;
+}
+.fp-auto-height.fp-section {
+    min-height: 100vh !important;
+}
+
 /* ================================================
    HERO SECTION
    ================================================ */
@@ -504,6 +513,10 @@ a:hover {
 /* ================================================
    SKILLS SECTION
    ================================================ */
+.skill-group {
+    margin-bottom: 3rem;
+}
+
 .skill-group h3 {
     font-size: 1.3rem;
     margin-bottom: 1.5rem;
