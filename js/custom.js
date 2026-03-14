@@ -55,6 +55,9 @@ const galleries = {
 		'images/hofs/Screenshot_20251008_205028.jpg', 'images/hofs/Screenshot_20251008_205205.jpg',
 		'images/hofs/Screenshot_20251008_205259.jpg', 'images/hofs/Screenshot_20251008_205426.jpg',
 		'images/hofs/Screenshot_20251008_205731.jpg', 'images/hofs/Screenshot_20251008_211448.jpg'
+	],
+	'ewptx': [
+		'images/ewptx.jpg'
 	]
 };
 
