@@ -37,7 +37,7 @@
 
 html {
     scroll-behavior: smooth;
-    font-size: 200%;
+    font-size: 100%;
 }
 
 body {
@@ -46,7 +46,7 @@ body {
     font-family: var(--font-body);
     overflow-x: hidden;
     line-height: 1.7;
-    font-size: 34px;
+    font-size: 16px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -374,7 +374,7 @@ a:hover {
     border: none;
     padding: 16px 40px;
     border-radius: 14px;
-    font-size: 32px;
+    font-size: 16px;
     font-weight: 700;
     font-family: var(--font-heading);
     text-transform: uppercase;
@@ -615,11 +615,11 @@ a:hover {
 
 .view-btn {
     padding: 8px 20px !important;
-    font-size: 28px !important;
+    font-size: 14px !important;
 }
 
 .drive-link {
-    font-size: 28px;
+    font-size: 14px;
     text-decoration: underline !important;
     opacity: 0.8;
     color: var(--accent-color);
@@ -882,7 +882,7 @@ a:hover {
 }
 
 @media (max-width: 768px) {
-    body { font-size: 32px; }
+    body { font-size: 16px; }
 
     .section {
         padding: 60px 0;
@@ -935,7 +935,7 @@ a:hover {
         gap: 15px;
     }
 
-    .btn-modern { padding: 12px 30px; font-size: 30px; }
+    .btn-modern { padding: 12px 30px; font-size: 14px; }
     .social-icon { justify-content: center; }
 
     .experience-card { padding: 1.5rem; margin-bottom: 1.5rem; }
@@ -1006,7 +1006,7 @@ a:hover {
 }
 
 @media (max-width: 480px) {
-    body { font-size: 30px; }
+    body { font-size: 16px; }
     .section { padding: 40px 0; }
     .fp-tableCell { padding: 25px 0 !important; }
     .hero-title { font-size: 1.8rem; margin-bottom: 1rem; }
@@ -1016,7 +1016,7 @@ a:hover {
 
     .glass-panel { padding: 1.2rem; border-radius: 14px; }
     .glass-panel::before, .glass-panel::after { width: 30px; height: 30px; }
-    .btn-modern { padding: 10px 25px; font-size: 28px; letter-spacing: 1px; }
+    .btn-modern { padding: 10px 25px; font-size: 14px; letter-spacing: 1px; }
     .experience-card { padding: 1.2rem; margin-bottom: 1.2rem; }
     .exp-header h3 { font-size: 1.1rem; }
     .exp-bullets li { font-size: 0.85rem; }
