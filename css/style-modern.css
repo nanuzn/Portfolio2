@@ -188,6 +188,35 @@ a:hover {
 }
 
 /* ================================================
+   FLUID MOUSE CURSOR
+   ================================================ */
+.cursor-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 600px;
+    height: 600px;
+    margin-top: -300px;
+    margin-left: -300px;
+    background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    opacity: 0.1;
+    mix-blend-mode: screen;
+    transition: width 0.3s, height 0.3s, margin 0.3s, background 0.3s, opacity 0.3s;
+}
+
+.cursor-glow.glow-active {
+    width: 800px;
+    height: 800px;
+    margin-top: -400px;
+    margin-left: -400px;
+    opacity: 0.15;
+    background: radial-gradient(circle, rgba(157, 241, 0, 0.8) 0%, transparent 65%);
+}
+
+/* ================================================
    GLASSMORPHISM COMPONENTS
    ================================================ */
 .glass-panel {
@@ -200,10 +229,29 @@ a:hover {
     padding: 2.5rem;
     margin-bottom: 2rem;
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     transition: transform 0.4s cubic-bezier(0.25, 0.4, 0.25, 1),
                 border-color 0.4s ease,
                 box-shadow 0.4s ease;
+}
+
+/* Fluid spotlight effect inside cards */
+.glass-spotlight {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: radial-gradient(
+        600px circle at var(--mouse-x) var(--mouse-y),
+        rgba(157, 241, 0, 0.08),
+        transparent 40%
+    );
+    z-index: -1; /* Keep it below panel content */
+}
+
+.glass-panel:hover .glass-spotlight {
+    opacity: 1;
 }
 
 /* Corner accent lines (like itsfucking.fun glass-card) */

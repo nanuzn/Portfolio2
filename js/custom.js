@@ -112,3 +112,54 @@ $(document).ready(function () {
 		if (e.key === "Escape") closeModal();
 	});
 });
+
+// Fluid Mouse Glow Effect
+const glow = document.createElement('div');
+glow.className = 'cursor-glow';
+document.body.appendChild(glow);
+
+let currentX = 0;
+let currentY = 0;
+let targetX = 0;
+let targetY = 0;
+
+document.addEventListener('mousemove', (e) => {
+    targetX = e.clientX;
+    targetY = e.clientY;
+});
+
+function animateGlow() {
+    currentX += (targetX - currentX) * 0.15;
+    currentY += (targetY - currentY) * 0.15;
+    
+    glow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    requestAnimationFrame(animateGlow);
+}
+animateGlow();
+
+// Add interactive states to glow for elements
+const interactables = document.querySelectorAll('a, button, .glass-panel');
+interactables.forEach(el => {
+    el.addEventListener('mouseenter', () => {
+        glow.classList.add('glow-active');
+    });
+    el.addEventListener('mouseleave', () => {
+        glow.classList.remove('glow-active');
+    });
+});
+
+// Interactive Card Spotlights
+document.querySelectorAll('.glass-panel').forEach(card => {
+    // Add inner spotlight div dynamically
+    const spotlight = document.createElement('div');
+    spotlight.className = 'glass-spotlight';
+    card.appendChild(spotlight);
+
+    card.addEventListener('mousemove', e => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+    });
+});
